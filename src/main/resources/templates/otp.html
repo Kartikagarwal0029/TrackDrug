@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet" />
+    <link href="css/main2.css" rel="stylesheet" />
+</head>
+<title>Search Prescription</title>
+<body>
+<div class="s002" style="background-image: url('../img/otppp.jpg')">
+    <form>
+        <fieldset>
+            <legend style="color: #0f1c56"><b>Enter OTP</b></legend>
+        </fieldset>
+        <div class="inner-form">
+            <div class="input-field first-wrap">
+
+                <input id="search" type="text" placeholder="Enter OTP" />
+            </div>
+
+
+
+            <div class="input-field fifth-wrap">
+                <button class="btn-search" type="button">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="js/extention/flatpickr.js"></script>
+<script>
+    flatpickr(".datepicker",
+        {});
+
+</script>
+<script>
+    const choices = new Choices('[data-trigger]',
+        {
+            searchEnabled: false,
+            itemSelectText: '',
+        });
+
+</script>
+</body>
+</html>

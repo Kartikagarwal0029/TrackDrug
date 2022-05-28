@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container text-center">
+    <h1>Orders</h1>
+    <table class="table table-striped table-bordered"  >
+        <thead class="thead-dark">
+        <tr>
+            <th>Medicine Name</th>
+            <th>Serial No</th>
+            <th>Mfg Date</th>
+            <th>Exp Date</th>
+            <th>Strip/Box</th>
+            <th>Price/Box</th>
+            <th>Quantity</th>
+            <th>Retailer Id</th>
+            <th>Create Shipment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:if="${#lists.isEmpty(msorder)}">
+            <tr>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+                <td>Null</td>
+            </tr>
+        </div>
+        <div th:unless="${#lists.isEmpty(msorder)}">
+            <tr th:each="morder : ${msorder}" th:for="ship">
+                <td th:text="${morder.getRetailOrder().getInventory().productName}">Null</td>
+                <td th:text="${morder.getRetailOrder().getInventory().serialNo}">Null</td>
+                <td th:text="${morder.getRetailOrder().getInventory().manufactureDate}">Null</td>
+                <td th:text="${morder.getRetailOrder().getInventory().expiryDate}">Null</td>
+                <td th:text="${morder.getRetailOrder().getInventory().stripPerBox}">Null</td>
+                <td th:text="${morder.getRetailOrder().getInventory().pricePerBox}">Null</td>
+                <td th:text="${morder.getRetailOrder().quantity}">Null</td>
+                <td th:text="${morder.getRetailOrder().name}">Null</td>
+                    <form th:action="@{/createshipment}" th:object="${shipment}" method="post" th:id="ship" >
+                        <input type="hidden" th:field="*{accept}" th:value="${true}" >
+                        <input type="hidden" th:field="*{manufactureOrders}" th:value="${shipment.setManufactureOrders(morder)}" >
+                        <input type="hidden" th:field="*{retailername}" th:value="${shipment.setRetailername(morder.getRetailOrder().getName())}" >
+
+                        <td>
+                         <button type="submit" th:disabled="${morder.isShipment()}" >Create Shipment</button>
+                     </td>
+                    </form>
+
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

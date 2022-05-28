@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap(1)/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <title>Add Inventory</title>
+</head>
+<body style="background-color: #666666;">
+<!--<form th:action="@{/addinvent}" th:object="${addmanfinvent}" method="POST" enctype="utf8">-->
+<!--    <div>-->
+<!--        <label>Product Name</label>-->
+<!--        <input type="text" th:field="*{productName}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Serial No</label>-->
+<!--        <input type="text" th:field="*{serialNo}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Manufacture Date</label>-->
+<!--        <input type="text" th:field="*{manufactureDate}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Expiry Date</label>-->
+<!--        <input type="text" th:field="*{expiryDate}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Boxes</label>-->
+<!--        <input type="number" th:field="*{boxes}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Strip Per Box</label>-->
+<!--        <input type="text" th:field="*{stripPerBox}"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--    <label>Price Per Box</label>-->
+<!--    <input type="text" th:field="*{pricePerBox}"/>-->
+<!--</div>-->
+<!--    <button type="submit">submit</button>-->
+<!--</form>-->
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+        <form class="login100-form validate-form" th:action="@{/addinvent}" th:object="${addmanfinvent}" method="POST" enctype="utf8">
+					<span class="login100-form-title p-b-43">
+						ADD INVENTORY
+					</span>
+
+
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="product name" th:field="*{productName}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">Product Name</span>
+            </div>
+
+
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="Serial Number" th:field="*{serialNo}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">Serial Number</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="manufacture Date" th:field="*{manufactureDate}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">MFG Date</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="expiry Date" th:field="*{expiryDate}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">Expiry Date</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="number" name="no. of boxes" th:field="*{boxes}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">No. of boxes</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="strip per box" th:field="*{stripPerBox}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">Strip Per Box</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="price per box" th:field="*{pricePerBox}"/>
+                <span class="focus-input100"></span>
+                <span class="label-input100">Price Per Box</span>
+            </div>
+
+
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit" style="font-size: 20px">
+                    ADD
+                </button>
+            </div>
+
+
+        </form>
+        <div class="login100-more" style="background-image: url('../img/23.jpg')">
+        </div>
+        <!--                                                                            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">-->
+<!--        <form th:action="@{/addinvent}" th:object="${addmanfinvent}" method="POST" enctype="utf8">-->
+
+
+<!--            &lt;!&ndash; Email input &ndash;&gt;-->
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{productName}"/>-->
+<!--                <label class="form-label" ><b>Product Name</b></label>-->
+<!--            </div>-->
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{serialNo}"/>-->
+<!--                <label class="form-label" ><b>Serial Number</b></label>-->
+<!--            </div>-->
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{manufactureDate}"/>-->
+<!--                <label class="form-label" ><b>MFG Date</b></label>-->
+<!--            </div>-->
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{expiryDate}"/>-->
+<!--                <label class="form-label" ><b>Expiry Date</b></label>-->
+<!--            </div>-->
+
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="number" th:field="*{boxes}"/>-->
+<!--                <label class="form-label" ><b>No. of Boxes</b></label>-->
+<!--            </div>-->
+
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{stripPerBox}"/>-->
+<!--                <label class="form-label" ><b>Strip per box</b></label>-->
+<!--            </div>-->
+<!--            <div class="form-outline mb-4">-->
+<!--                <input class="form-control form-control-lg" type="text" th:field="*{pricePerBox}"/>-->
+
+<!--                <label class="form-label" ><b>Price Per Box</b></label>-->
+<!--            </div>-->
+
+<!--            <div class="text-center text-lg-start mt-4 pt-2">-->
+<!--                <button type="submit" class="btn btn-primary btn-lg"-->
+<!--                        style="padding-left: 2.5rem; padding-right: 2.5rem; color: white">ADD</button>-->
+
+<!--            </div>-->
+
+<!--        </form>-->
+        <!--                                                                            </div>-->
+    </div>
+    </div>
+</div>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap(1)/js/popper.js"></script>
+<script src="vendor/bootstrap(1)/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main(1).js"></script>
+
+
+</body>
+</html>
